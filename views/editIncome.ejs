@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <link rel="stylesheet" href="/styles.css">
+  <style>
+    body {
+      background-color: #f0f0f0; /* Light gray background for the body */
+    }
+    .editProfile-card {
+      max-width: 400px; /* Maximum width of the login card */
+      margin: 0 auto; /* Center align the card */
+      background-color: #fff; /* Background color of the card */
+      border-radius: 8px; /* Rounded corners for the card */
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Box shadow for a subtle depth effect */
+      padding: 20px; /* Padding inside the card */
+      margin-top: 50px; /* Top margin to separate from the navbar */
+    }
+    .editProfile-card h2 {
+      margin-bottom: 20px; /* Bottom margin for the header */
+    }
+    .editProfile-card p {
+      font-size: 17px; /* Font size for the paragraph */
+      margin-bottom: 20px; /* Bottom margin for the paragraph */
+    }
+    .editProfile-card form {
+      text-align: center; /* Center align the form elements */
+    }
+  </style>
+  <title>Edit Income</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-sm navbar-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/">
+            <img src="images/FinanceBroLogo.png" alt="Logo" style="width: 35px; height:35px;">FinanceBros</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+          <ul class="navbar-nav me-auto">
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Services</a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="/moneyTracking">Money Tracking</a></li>
+                <li><a class="dropdown-item" href="/budgetPlanner">Budget Planner</a></li>
+                <li><a class="dropdown-item" href="/targetSetting">Set a Target</a></li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/contact">Contact Us</a>
+            </li>
+          </ul>
+          <ul class="navbar-nav">
+            <% if (isAuthenticated) { %>
+              <li class="nav-item">
+                <a class="nav-link" href="/dashboard">Dashboard</a>
+              </li>
+              <li class="nav-item">
+                <form class="nav-link-form" action="/logout" method="POST">
+                  <button type="submit" class="nav-link">Logout</button>
+                </form>
+              </li>
+            <% } else { %>
+              <li class="nav-item">
+                <a class="nav-link" href="/login">Login</a>
+              </li>
+            <% } %>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container">
+      <div class="editProfile-card">
+        <div class="text-center"><h2>Update Income Details</h2></div>
+        <br>
+        <div class="text-center">
+          <% if (income) { %>
+            <form action="/editIncome/<%= income.incomeID %>" method="POST">
+                <label for="amount">Amount:</label><br>
+                <input type="number" id="amount" name="amount" value ="<%= income.amount %>" required><br><br>
+
+                <label for="description">Description:</label><br>
+                <input type="text" id="description" name="description" value ="<%= income.description %>" required><br><br>
+
+                <label for="date">Date:</label><br>
+                <input type="date" id="date" name="date" value ="<%= new Date(income.date).toLocaleDateString('en-US',  
+              { month: 'short', day: 'numeric', year: 'numeric'});%>" required><br><br>
+
+                <button type="submit" class="btn btn-primary" style="background-color: #399B53; border: none;">Update Income</button>
+            </form>
+          <% } else { %>
+              <p>No income found.</p>
+          <% } %>
+          <br>
+          <form action="/dashboard">
+            <button type="submit" class="btn btn-secondary" style="background-color: grey; border: none;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8"/>
+              </svg> Back to Dashboard
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+</body>
+</html>

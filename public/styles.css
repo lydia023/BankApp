@@ -1,0 +1,76 @@
+.navbar {
+    background-color: #ffffff;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+.nav-link {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 1rem; /* Adjust padding for better alignment */
+}
+.nav-link-form {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 1rem; /* Match padding with regular nav-links */
+}
+.nav-link-form button {
+  background: none;
+  border: none;
+  padding: 0;
+  color: black;
+  cursor: pointer;
+  font-size: 1rem;
+}
+.nav-link-form button:hover {
+  color: #399B53
+}
+.cta {
+    font-size: 23px;
+    display: inline-block;
+    background-color: #399B53;
+    color: white;
+    border: none;
+    padding: 8px 18px;
+    cursor: pointer;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.intro {
+    color: black;
+    text-align: center;
+    padding: 80px 16px;
+}
+
+.intro h1 {
+    font-size: 48px;
+}
+
+.intro p {
+    font-size: 24px;
+}
+
+#features {
+    padding: 1px 16px;
+    text-align: center;
+}
+
+.feature {
+    margin: 16px;
+}
+
+.navbar a {
+    color: black;
+}
+
+.navbar a:hover{
+    color: #399B53;
+}
+
+.nav-link.dropdown-toggle:active,
+.nav-link.dropdown-toggle:focus {
+    color: black
+}
+
+.nav-link.dropdown-toggle:hover{
+    color: #399B53
+}
+ 
