@@ -10,11 +10,10 @@ const connection = mysql.createConnection({
     //user: "root",
     //password: "",
     //database: "c237_bankingapp"
-    host: "sql.freedb.tech",
-    port: "3306",
-    user: "freedb_lydia023",
-    password: "aqg2aURfd8q9$!T",
-    database: "freedb_c237_bankingapp"
+    host: "db4free.net",
+    user: "lydiaaa",
+    password: "Hellolife123",
+    database: "c237bankingapp"
 });
 
 connection.connect((err) => {
