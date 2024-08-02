@@ -6,10 +6,14 @@ const app = express();
 
 //create mysql connection
 const connection = mysql.createConnection({
-    host: "localhost",
-    user: "root",
-    password: "",
-    database: "c237_bankingapp"
+    //host: "localhost",
+    //user: "root",
+    //password: "",
+    //database: "c237_bankingapp"
+    host: "sql.freedb.tech",
+    user: "freedb_lydia023",
+    password: "aqg2aURfd8q9$!T",
+    database: "freedb_c237_bankingapp"
 });
 
 connection.connect((err) => {
