@@ -11,6 +11,7 @@ const connection = mysql.createConnection({
     //password: "",
     //database: "c237_bankingapp"
     host: "sql.freedb.tech",
+    port: "3306",
     user: "freedb_lydia023",
     password: "aqg2aURfd8q9$!T",
     database: "freedb_c237_bankingapp"
